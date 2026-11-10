@@ -1,0 +1,23 @@
+% House setup: pdfLaTeX, scrartcl, natbib (apalike), booktabs. No em-dashes.
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern, microtype, csquotes}
+\usepackage[authoryear]{natbib}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\bibliographystyle{apalike}
+\usepackage{amsmath, graphicx, booktabs, tabularx, caption, xcolor, setspace, float}
+\usepackage[nohead]{geometry}
+\geometry{left=3.3cm, right=3.3cm, top=3.5cm, bottom=3.3cm}
+\definecolor{aaublue}{RGB}{33,26,82}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, citecolor=aaublue, linkcolor=aaublue, urlcolor=aaublue}
+
+% Drafting markers: remove before it goes out
+\newcommand{\needcite}{\textcolor{red}{[CITATION NEEDED]}}
+\newcommand{\todo}[1]{\textcolor{orange}{[TODO: #1]}}
+
+\title{Working title}
+\author{Roman Jurowetzki\\\small Aalborg University Business School}
+\date{\today}

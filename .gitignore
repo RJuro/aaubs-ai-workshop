@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+out/
+runs/
+workflows/*/steps/
+workflows/*/cache/
+workflows/*/results/
+workflows/*/llm/
+workflows/*/run.sh
+workflows/*/NOTEBOOK.md
+workflows/*/notebook.html
+workflows/*/MANIFEST.json
+workflows/02-your-recording/input/*
+workflows/03-your-paper/input/*
+workflows/07-bibliometrics/input/*
+!workflows/*/input/.gitkeep

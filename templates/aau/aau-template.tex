@@ -1,0 +1,90 @@
+% AAU Simple Beamer template, 16:9, pdflatex. Copy this folder to out/<deck>/ and edit there.
+% Build: latexmk -pdf aau-template.tex
+\documentclass[11pt,aspectratio=169]{beamer}
+\usetheme{AAUsimple}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{booktabs,tabularx,array,xurl,amsmath,graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\hypersetup{colorlinks=true,urlcolor=beamer@headercolor,linkcolor=.}
+
+\setbeamercolor{framesubtitle}{fg=beamer@barcolor}
+\setbeamerfont{framesubtitle}{size=\small}
+\definecolor{accent}{HTML}{D2542A}  % warm accent, use sparingly
+\newcommand{\hl}[1]{\textcolor{accent}{\textbf{#1}}}
+\newcommand{\kilde}[1]{\par{\raggedleft\tiny\usebeamercolor[fg]{normal text}#1\par}}  % source line, bottom right
+
+\title{Title of the talk}
+\subtitle{One line that says what the paper finds}
+\date{\today}
+\author{Author Name}
+\institute[Aalborg University]{Aalborg University Business School}
+\pgfdeclareimage[height=1.5cm]{titlepagelogo}{AAUgraphics/aau_logo_new}
+\titlegraphic{\pgfuseimage{titlepagelogo}}
+
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}
+
+% The frame title names the topic; the subtitle states the point of the slide.
+\begin{frame}{Why this question}{A concrete hook: a case, a number or a bit of history}
+  \begin{itemize}
+    \item One idea per bullet, at most four bullets.
+    \item Plain words; define a term the first time it appears.
+    \item Mark the one thing to remember: \hl{like this}.
+  \end{itemize}
+  \kilde{Author (Year), \emph{Title}, Journal}
+\end{frame}
+
+\begin{frame}{What the paper does}{Data, method, and the comparison that matters}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Data}\par\footnotesize
+      What, how many, which years.
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Method}\par\footnotesize
+      The estimate or model in one sentence:
+      \[ y_i = \alpha + \beta x_i + \varepsilon_i \]
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Main result}{Rebuild the key table with only the numbers people need}
+  \centering\small
+  \begin{tabular}{lcc}
+    \toprule
+    Group & Estimate & $N$ \\
+    \midrule
+    A & \hl{$-0.041$} & 1{,}204 \\
+    B & $0.012$ & 2{,}877 \\
+    \bottomrule
+  \end{tabular}
+  \kilde{Table 2 in the paper}
+\end{frame}
+
+\begin{frame}{A figure from the paper}{Say in the subtitle what the reader should see}
+  \centering
+  % \includegraphics[height=0.62\textheight]{figure.png}
+  \tikz\node[draw=beamer@headercolor,minimum width=8cm,minimum height=4cm,align=center]{figure here\\(\texttt{\textbackslash includegraphics})};
+  \kilde{Figure 3 in the paper}
+\end{frame}
+
+\begin{frame}{So what?}{What changes if the paper is right}
+  \begin{itemize}
+    \item For research: \ldots
+    \item For practice or policy: \ldots
+  \end{itemize}
+  \vspace{3mm}
+  \textbf{Open questions}
+  \begin{itemize}
+    \item What the paper cannot tell us yet.
+  \end{itemize}
+\end{frame}
+
+\end{document}

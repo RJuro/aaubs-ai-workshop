@@ -1,0 +1,11 @@
+#!/bin/zsh
+# Store the university Mistral API key for Claude's scripts: hidden input, owner-only file, live check.
+# The key never appears on screen, in shell history or in the process list.
+f=~/.config/mistral/key
+mkdir -p ${f:h} && chmod 700 ${f:h}
+read -rs "k?Paste Mistral API key (hidden): "; echo
+[[ -z $k ]] && { echo "Nothing entered, file unchanged."; exit 1; }
+umask 077; print -rn -- $k > $f; chmod 600 $f
+code=$(print -r -- "header = \"Authorization: Bearer $k\"" | curl -s -o /dev/null -w '%{http_code}' -K - https://api.mistral.ai/v1/models)
+unset k
+[[ $code == 200 ]] && echo "Saved to $f and Mistral accepts it." || echo "Saved to $f, but Mistral answered HTTP $code. Check the key."
